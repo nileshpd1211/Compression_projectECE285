@@ -129,7 +129,7 @@ def huffman_encoder(model, directory='encodings/'):
     
     original_total = 0
     compressed_total = 0
-    print(f"{'Layer':<10} | {'Original':>10} | {'Compressed':>10} | {'Compression Factor'}")
+    print(f"{'Layer':<10} | {'Original':>10} | {'Compressed':>10} | {'Compression Factor':>10}")
     print('-'*60)
     for name, param in model.named_parameters():
         if 'bias' in name:
@@ -140,8 +140,7 @@ def huffman_encoder(model, directory='encodings/'):
             # Print Stats
             original = bias.nbytes
             compressed = original
-
-            print(f"{name:<10} | {original:10} | {compressed:10} | {compressed/original:>17.4f}")
+            print(f"{name:<10} | {original:10} | {compressed:10} | {original/compressed:>15.2f}x")
 
         if 'weight' in name:
             weight = param.data.cpu().numpy()
@@ -160,10 +159,10 @@ def huffman_encoder(model, directory='encodings/'):
             original = mat.data.nbytes + mat.indices.nbytes + mat.indptr.nbytes
             compressed = d0 + d1 + d2
 
-            print(f"{name:<10} | {original:10} | {compressed:10} | {compressed/original:>17.4f}")
+            print(f"{name:<10} | {original:10} | {compressed:10} | {original/compressed:>15.2f}x")
             
         original_total += original
         compressed_total += compressed
 
     print('-'*60)
-    print(f"{'total':10} | {original_total:>10} | {compressed_total:>10} | {compressed_total/original_total:>17.4f}")
+    print(f"{'total':10} | {original_total:>10} | {compressed_total:>10} | {original_total/compressed_total:>15.2f}x")
