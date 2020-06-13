@@ -1,7 +1,7 @@
 # ECE285 Compression Final Project
 
-Description
 This code is part of ECE285 Final Project developed by Alakh Desai and Nilesh Prasad Pandey.
+
 It performs network prunning, weights sharing and huffman encoding on the weights for the compression.
 
 ## Code organization
