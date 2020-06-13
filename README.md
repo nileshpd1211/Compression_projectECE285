@@ -2,7 +2,7 @@
 
 This code is part of ECE285 Final Project developed by Alakh Desai and Nilesh Prasad Pandey.
 
-It performs network prunning, weights sharing and huffman encoding on the weights for the compression.
+The code performs network prunning, weights sharing and huffman encoding on the weights for the compression.
 
 ## Code organization
 - **main.py:** This is main driver code which performs all the said technique in the given Network.
